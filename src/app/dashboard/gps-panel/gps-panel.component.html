@@ -1,0 +1,23 @@
+<div class="light-gps-title">
+  <span class="light-title-brown"></span>
+  <p>实时定位</p>
+</div>
+<div class="light-gps-content">
+<div style="height:500px;width:900px">
+  <baidu-map [options]="opts" (loaded)="loadMap(map)">
+    <!--图标-->
+    <!--<marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options"></marker>-->
+    <marker *ngFor="let marker of markers" [point]="marker.point" (clicked)="showWindow($event,marker)"></marker>
+      <!--导航控件-->
+   <!-- <control type="navigation" [options]="controlOpts"></control>-->
+    <!--地图全景控件-->
+   <!-- <control type="overviewmap" [options]="overviewmapOpts"></control>-->
+    <!--比例尺-->
+    <control type="scale" [options]="scaleOpts"></control>
+    <!--地图类型-->
+    <control type="maptype" [options]="mapTypeOpts"></control>
+
+    <control type="geolocation" [options]="geolocationOpts"></control>
+  </baidu-map>
+  </div>
+  </div>
